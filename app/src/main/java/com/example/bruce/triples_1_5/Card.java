@@ -1,18 +1,25 @@
 package com.example.bruce.triples_1_5;
 
+import android.widget.TextView;
+
 public class Card {
     private Shape mShape;
     private Color mColor;
     private int mNumber;
     private int mAlpha;
     private boolean mIsSelected;
+    private int mImageID;
+    private int mSelectedImageID;
 
 
-    public Card(Shape shape, Color color, int number, int alpha, boolean isSelected) {
+    public Card(Shape shape, Color color, int number, int alpha, int imageID, int selectedImageID) {
         mShape = shape;
         mColor = color;
         mNumber = number;
-        mIsSelected = isSelected;
+        mAlpha = alpha;
+        mImageID = imageID;
+        mSelectedImageID = selectedImageID;
+        mIsSelected = false;
     }
 
     /*********************
@@ -46,14 +53,12 @@ public class Card {
         return mAlpha;
     }
 
-    public String getImageID() {
-        String id = mShape + "_" + mColor + "_" + mNumber + "_" + mAlpha;
-        return id.toLowerCase();
+    public int getImageID() {
+        return mImageID;
     }
 
-    public String getSelectedImageID() {
-        String id = mShape + "_" + mColor + "_" + mNumber + "_" + mAlpha + "_selected";
-        return id.toLowerCase();
+    public int getSelectedImageID() {
+        return mSelectedImageID;
     }
 
     public void setIsSelected()
