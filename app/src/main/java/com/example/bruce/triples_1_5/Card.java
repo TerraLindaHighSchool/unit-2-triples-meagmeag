@@ -24,7 +24,7 @@ public class Card {
 
     /*********************
      * Enums
-     *********************/
+     **********************/
     public enum Shape {
         NOSHAPE, CIRCLE, SQUARE, TRIANGLE;
     }
