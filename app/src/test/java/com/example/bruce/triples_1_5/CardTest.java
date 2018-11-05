@@ -8,18 +8,18 @@ public class CardTest{
     Card card1 = new Card(Card.Shape.CIRCLE, Card.Color.GREEN, 1, 0,R.drawable.circle_green_1_0, R.drawable.circle_green_1_0_selected);
     Card card2 = new Card(Card.Shape.SQUARE, Card.Color.BLUE, 2, 1, R.drawable.square_blue_2_1, R.drawable.square_blue_2_1_selected);
     Card card3 = new Card(Card.Shape.TRIANGLE, Card.Color.RED, 3, 2, R.drawable.triangle_red_3_2, R.drawable.triangle_red_3_2_selected);
-    Card card4 = new Card(Card.Shape.NOSHAPE, Card.Color.NOCOLOR, 1,0, R.drawable.blank_0_0_0, R.drawable.blank_0_0_0);
+    Card card4 = new Card(Card.Shape.NO_SHAPE, Card.Color.NO_COLOR, 1,0, R.drawable.blank_0_0_0, R.drawable.blank_0_0_0);
 
     @Test
     public void getShape() {
-        Card.Shape [] expected = {Card.Shape.CIRCLE, Card.Shape.SQUARE, Card.Shape.TRIANGLE, Card.Shape.NOSHAPE};
+        Card.Shape [] expected = {Card.Shape.CIRCLE, Card.Shape.SQUARE, Card.Shape.TRIANGLE, Card.Shape.NO_SHAPE};
         Card.Shape [] results = {card1.getShape(), card2.getShape(), card3.getShape(), card4.getShape()};
         assertArrayEquals(expected,results);
     }
 
     @Test
     public void getColor() {
-        Card.Color [] expected = {Card.Color.GREEN, Card.Color.BLUE, Card.Color.RED, Card.Color.NOCOLOR};
+        Card.Color [] expected = {Card.Color.GREEN, Card.Color.BLUE, Card.Color.RED, Card.Color.NO_COLOR};
         Card.Color [] results = {card1.getColor(), card2.getColor(), card3.getColor(), card4.getColor()};
         assertArrayEquals(expected,results);
     }
@@ -55,12 +55,12 @@ public class CardTest{
     //Tests both get and set is selected.
     @Test
     public void getAndSetIsSelected() {
-        card1.setIsSelected();
-        card2.setIsSelected();
+        card1.setIsSelected(true);
+        card2.setIsSelected(true);
         boolean [] expected = {true, true, false};
         boolean [] results = {card1.getIsSelected(), card2.getIsSelected(), card3.getIsSelected()};
         assertArrayEquals(expected, results);
     }
 
-    
+
 }

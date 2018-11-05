@@ -26,11 +26,11 @@ public class Card {
      * Enums
      **********************/
     public enum Shape {
-        NOSHAPE, CIRCLE, SQUARE, TRIANGLE;
+        NO_SHAPE, CIRCLE, SQUARE, TRIANGLE;
     }
 
     public enum Color {
-        NOCOLOR, GREEN, BLUE, RED;
+        NO_COLOR, GREEN, BLUE, RED;
     }
 
     /*********************
@@ -61,9 +61,9 @@ public class Card {
         return mSelectedImageID;
     }
 
-    public void setIsSelected()
+    public void setIsSelected(boolean select)
     {
-        mIsSelected = true;
+       mIsSelected = select;
     }
 
     public boolean getIsSelected()
