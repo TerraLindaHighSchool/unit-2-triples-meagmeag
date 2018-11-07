@@ -15,14 +15,16 @@ public class Deck {
     }
 
     protected void createShuffledDeck( ){
-        for(int i = 0; i < mOrderedDeck.length; i ++)
+        for(int i = 0; i < mOrderedDeck.length; i++)
             mShuffledDeck.add(mOrderedDeck[0]);
 
         int rand;
-        for(int i = 0; i < mOrderedDeck.length; i ++) {
+        for(int i = 0; i < mOrderedDeck.length; i++) {
             rand = (int) (mOrderedDeck.length * Math.random());
-            mShuffledDeck.add(rand, mOrderedDeck[i]);
-            mShuffledDeck.remove(i);
+            if(mShuffledDeck.get(rand) == mOrderedDeck[0])
+                mShuffledDeck.set(rand, mOrderedDeck[i]);
+            else
+                i--;
         }
         }
 
@@ -34,13 +36,17 @@ public class Deck {
 
     protected Card getTopCard( ){
         if(mShuffledDeck.size() > 0)
-        mShuffledDeck.remove(0);
+        return mShuffledDeck.remove(0);
         else
             return mOrderedDeck[0];
     }
 
     protected Card getCard(int index){
         return mShuffledDeck.get(index);
+    }
+
+    protected Card getBlank(){
+        return mOrderedDeck[0];
     }
 
     private void populateOrderedDeckWithCards(int numOfCardsInDeck){

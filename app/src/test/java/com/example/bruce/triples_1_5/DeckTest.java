@@ -17,10 +17,16 @@ public class DeckTest {
 
     @Test
     public void getTopCard() {
-       while(deck1.)
-       Card expected = deck1.getCard(0);
-       Card results = deck1.getTopCard();
-       assertEquals(expected, results);
+        for(int i = 0; i < 55; i ++) {
+            Card expected = deck1.getCard(0);
+            Card results = deck1.getTopCard();
+            assertEquals(expected, results);
+        }
+
+        //tests when deck1 has no cards. getBlank returns the blank card mOrderedDeck[0]
+        Card expected = deck1.getBlank();
+        Card results = deck1.getTopCard();
+        assertEquals(expected, results);
     }
 
     @Test
