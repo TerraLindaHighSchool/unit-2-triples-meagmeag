@@ -2,7 +2,6 @@ package com.example.bruce.triples_1_5;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Deck {
     private Card[] mOrderedDeck;
