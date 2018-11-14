@@ -58,7 +58,7 @@ import java.util.ArrayList;
         }
 
         protected void replaceCardOnBoard(int index){
-            // to be implemented
+            mCardOnBoard.set(index, deck.getTopCard());
         }
 
         /*************************************************
@@ -66,15 +66,15 @@ import java.util.ArrayList;
          *************************************************/
 
         protected void addSelectedCardIndex(int cardIndex){
-            // to be implemented
+            mSelectedCards.add(cardIndex);
         }
 
         protected void removeSelectedCardIndex(int cardIndex){
-            // to be implemented
+            mSelectedCards.remove(Integer.valueOf(cardIndex));
         }
 
         protected void resetSelectedCardIndices(){
-            // to be implemented
+            mSelectedCards.clear();
         }
 
         /*************************************************
@@ -89,9 +89,18 @@ import java.util.ArrayList;
          * Methods that determine play
          *************************************************/
 
-        protected boolean isTriple(int firstCard, int secondCard, int thirdCard){
-            // to be implemented
-            return true; // temporary placeholder until implementation
+        protected boolean isTriple(int firstCard, int secondCard, int thirdCard) {
+            Card card1 = getCardOnBoard(firstCard);
+            Card card2 = getCardOnBoard(secondCard);
+            Card card3 = getCardOnBoard(thirdCard);
+
+            if (((card1.getNumber() + card2.getNumber() + card3.getNumber()) % 3 == 0)
+                    && ((card1.getShape().ordinal() + card2.getShape().ordinal() + card3.getShape().ordinal()) % 3 == 0)
+                    && ((card1.getColor().ordinal() + card2.getColor().ordinal() + card3.getColor().ordinal()) % 3 == 0)
+                    && ((card1.getAlpha() + card2.getAlpha() + card3.getAlpha() % 3 == 0)))
+                return true;
+            else
+                return false;
         }
 
         protected boolean playIsPossible(){
