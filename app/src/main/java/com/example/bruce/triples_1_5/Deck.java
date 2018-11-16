@@ -14,18 +14,18 @@ public class Deck {
     }
 
     protected void createShuffledDeck( ){
-        for(int i = 0; i < mOrderedDeck.length; i++)
+        for(int i = 1; i < mOrderedDeck.length; i++)
             mShuffledDeck.add(mOrderedDeck[0]);
 
         int rand;
-        for(int i = 0; i < mOrderedDeck.length; i++) {
-            rand = (int) (mOrderedDeck.length * Math.random());
+        for(int i = 1; i < mOrderedDeck.length; i++) {
+            rand = (int) ((mOrderedDeck.length - 1) * Math.random());
             if(mShuffledDeck.get(rand) == mOrderedDeck[0])
                 mShuffledDeck.set(rand, mOrderedDeck[i]);
             else
                 i--;
         }
-        }
+    }
 
 
 
