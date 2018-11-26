@@ -17,7 +17,6 @@ import java.util.ArrayList;
             deck = new Deck(numOfCardsInDeck);
             mCardOnBoard = new ArrayList<>();
             mSelectedCards = new ArrayList<>();
-            mStartTime = System.currentTimeMillis();
             mScore = 0;
             mTriplesRemaining = deck.getNumCardsInDeck() / 3;
             mLevel = level;
@@ -81,8 +80,13 @@ import java.util.ArrayList;
          * Scoring
          *************************************************/
         protected int updateScore() {
-            // to be implemented
-            return -1; // temporary placeholder until implementation
+            //the scores are numbers divisible by 5
+            long endTime = System.currentTimeMillis();
+            int time = (int) ((endTime - mStartTime) / 200) * mLevel;
+            while (!(time % 5 == 0))
+                time ++;
+            mScore += time;
+            return mScore;
         }
 
         /*************************************************
