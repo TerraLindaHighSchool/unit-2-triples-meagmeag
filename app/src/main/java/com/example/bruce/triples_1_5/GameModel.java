@@ -76,11 +76,11 @@ import java.util.ArrayList;
             mSelectedCards.clear();
         }
 
-        /*************************************************
+        /**************************************************
          * Scoring
          *************************************************/
         protected int updateScore() {
-            //the scores are numbers divisible by 5
+            //the scores are rounded up so they are divisible by 5
             long endTime = System.currentTimeMillis();
             int time = (int) ((endTime - mStartTime) / 200) * mLevel;
             while (!(time % 5 == 0))
